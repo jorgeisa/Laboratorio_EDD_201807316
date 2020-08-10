@@ -33,7 +33,7 @@ int main(){
     imprimir(l);
 
     //Metodo get "Recursivo"
-    getRecursivo(l->head,0); // Obteniendo 2
+    getRecursivo(l->head,-10); // Obteniendo 2
     getRecursivo(l->head,4); // Obteniendo 100
     getRecursivo(l->head,2); // Obteniendo 10
 
@@ -45,26 +45,26 @@ int main(){
     eliminar(l, 0); //eliminando 6*/
 
     //Metodo eliminar "recursivo"
-    eliminarRecursivo(l->head,l,0);//eliminando 2
-    eliminarRecursivo(l->head,l,2);//eliminando 56
-    eliminarRecursivo(l->head,l,1);//eliminando 10
+    //eliminarRecursivo(l->head,l,0);//eliminando 2
+    //eliminarRecursivo(l->head,l,2);//eliminando 56
+    //eliminarRecursivo(l->head,l,1);//eliminando 10
 
-    getRecursivo(l->head, 25);//get invalido, indice no existe
+    //getRecursivo(l->head, 25);//get invalido, indice no existe
 
-    eliminarRecursivo(l->head,l,2);//Eliminacion invalida
-    eliminarRecursivo(l->head,l,10);//Eliminacion invalida
+    //eliminarRecursivo(l->head,l,2);//Eliminacion invalida
+    //eliminarRecursivo(l->head,l,10);//Eliminacion invalida
 
-    getRecursivo(l->head, 0);//get valido solo queda 6 y 100
+    //getRecursivo(l->head, 0);//get valido solo queda 6 y 100
 
-    add(l,x);
-    add(l,y);
-    add(l,z);
+    //add(l,x);
+    //add(l,y);
+    //add(l,z);
 
-    add(l,u);
+    /*add(l,u);
     add(l,v);
-    add(l,w);
+    add(l,w);*/
 
-    imprimir(l);
+    //imprimir(l);
     generar(l);
     Liberar(l);
     free(l);

@@ -1,0 +1,19 @@
+---------------Errores-------------
+--------------Recomendaciones--------
+**************Muy bien documentado**********
+
+1) Es mejor hacer un metodo recursivo que te retorne el nodo, la idea esta bien solo 
+que tienes que hacer que retorne el nodo buscado.
+
+2) Esta muy bien como estas haciendo la recursividad.
+
+3) En el metodo eliminarRecursivo podias mandar a indice como un puntero a ese entero
+para que no haga una copia de otro entero
+--------------Nota------------------
+
+Grafica 20/20
+Get 40/40
+Eliminar 40/40
+
+
+Total   100

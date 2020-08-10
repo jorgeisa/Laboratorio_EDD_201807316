@@ -1,10 +1,19 @@
-digraph G{ 
- node[shape="box"];
-node0x55739997c280[label="3"]
-node0x55739997c260[label="10"]
-node0x55739997c2a0[label="25"]
-node0x55739997c260->node0x55739997c2a0;
- node0x55739997c2a0->node0x55739997c260;
-node0x55739997c280->node0x55739997c260;
- node0x55739997c260->node0x55739997c280;
+digraph G{
+ rankdir="LR" 
+ node[shape="cylinder", fillcolor="mediumseagreen", style="filled"];
+graph[splines="ortho"]
+node0x556eedffa260[label="2", shape="star"]
+node0x556eedffa280[label="6"]
+node0x556eedffa2a0[label="10"]
+node0x556eedffa2e0[label="56"]
+node0x556eedffa2c0[label="100", shape="star"]
+ edge[arrowhead="dot", color="maroon"];
+node0x556eedffa2e0->node0x556eedffa2c0;
+ node0x556eedffa2c0->node0x556eedffa2e0;
+node0x556eedffa2a0->node0x556eedffa2e0;
+ node0x556eedffa2e0->node0x556eedffa2a0;
+node0x556eedffa280->node0x556eedffa2a0;
+ node0x556eedffa2a0->node0x556eedffa280;
+node0x556eedffa260->node0x556eedffa280;
+ node0x556eedffa280->node0x556eedffa260;
 }
