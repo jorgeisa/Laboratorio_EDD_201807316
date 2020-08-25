@@ -1,26 +1,27 @@
 #ifndef NODOBINARIO_H
 #define NODOBINARIO_H
 #include <iostream>
+
 using namespace std;
 
-template<class DATA>
-class NodoBinario
+class nodoBinario
 {
 public:
-    NodoBinario(DATA* data);
-    void setData(DATA* data);
-    void setDerecha(NodoBinario* derecha);
-    void setIzquierda(NodoBinario* izquierda);
+    nodoBinario(int data);
+    ~nodoBinario();
+    void setData(int data);
+    void setDerecha(nodoBinario* derecha);
+    void setIzquierda(nodoBinario* izquierda);
 
-    DATA* getData();
-    NodoBinario* getIzquierda();
-    NodoBinario* getDerecha();
+    int getData();
+    nodoBinario* getIzquierda();
+    nodoBinario* getDerecha();
 
     void visitarNodo();
 private:
-    DATA* data;
-    NodoBinario* derecha;
-    NodoBinario* izquierda;
+    int data;
+    nodoBinario* derecha;
+    nodoBinario* izquierda;
 };
 
 #endif // NODOBINARIO_H

@@ -1,45 +1,42 @@
 #include "nodobinario.h"
 
-template<class DATA>
-NodoBinario<DATA>::NodoBinario(DATA* data)
+nodoBinario::nodoBinario(int data)
 {
     this->data=data;
     this->derecha=NULL;
     this->izquierda=NULL;
 }
 
-template<class DATA>
-void NodoBinario<DATA>::setData(DATA* data){
+nodoBinario::~nodoBinario(){
+    cout<<"\nNodo Eliminado\n"<<endl;
+}
+
+void nodoBinario::setData(int data){
     this->data=data;
 }
 
-template<class DATA>
-void NodoBinario<DATA>::setDerecha(NodoBinario* derecha){
+
+void nodoBinario::setDerecha(nodoBinario* derecha){
     this->derecha = derecha;
 }
 
-template<class DATA>
-void NodoBinario<DATA>::setIzquierda(NodoBinario* izquierda){
+
+void nodoBinario::setIzquierda(nodoBinario* izquierda){
     this->izquierda=izquierda;
 }
 
-template<class DATA>
-DATA* NodoBinario<DATA>::getData(){
+int nodoBinario::getData(){
     return this->data;
 }
 
-template<class DATA>
-NodoBinario<DATA>* NodoBinario<DATA>::getIzquierda(){
+nodoBinario* nodoBinario::getIzquierda(){
     return this->izquierda;
 }
 
-template<class DATA>
-NodoBinario<DATA>* NodoBinario<DATA>::getDerecha(){
+nodoBinario* nodoBinario::getDerecha(){
     return this->derecha;
 }
 
-template <class DATA>
-void NodoBinario<DATA>::visitarNodo(){
-    cout<<this->getData()<<endl;
+void nodoBinario::visitarNodo(){
+    cout<<this->getData()<<" , ";
 }
-

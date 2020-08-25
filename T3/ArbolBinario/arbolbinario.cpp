@@ -1,68 +1,65 @@
 #include "arbolbinario.h"
 
-template<class DATA>
-ArbolBinario<DATA>::ArbolBinario()
+ArbolBinario::ArbolBinario()
 {
     this->raiz=NULL;
 }
 
-template <class DATA>
-ArbolBinario<DATA>::~ArbolBinario(){
+ArbolBinario::~ArbolBinario(){
 
 }
 
-template <class DATA>
-NodoBinario<DATA>* ArbolBinario<DATA>::getRaiz(){
+nodoBinario* ArbolBinario::getRaiz(){
     return this->raiz;
 }
 
-template<class DATA>
-void ArbolBinario<DATA>::insertarNodo(DATA data){
-    DATA* dataP= &data;
-    this->raiz = insertarNodo(this->raiz, dataP);
+void ArbolBinario::insertarNodo(int data){
+    this->raiz = insertarNodo(this->raiz, data);
     cout<<"Usted ha insertado el elemento.\n"<<endl;
 }
 
-template<class DATA>
-NodoBinario<DATA>* ArbolBinario<DATA>::insertarNodo(NodoBinario<DATA>* raiz, DATA* data){
+nodoBinario* ArbolBinario::insertarNodo(nodoBinario* raiz, int data){
     if(raiz==NULL){//Si esta vacio
-        NodoBinario<DATA>* nuevo = new NodoBinario<DATA>(data);
+        nodoBinario* nuevo = new nodoBinario(data);
         raiz = nuevo;
     }else if(data < raiz->getData()){//Si esta lleno o al menos con un elemento
         //Si la data es menor a la raiz
-        NodoBinario<DATA>* izquierda;
+        nodoBinario* izquierda;
         izquierda = insertarNodo(raiz->getIzquierda(), data);
         raiz->setIzquierda(izquierda);
     }else if(data > raiz->getData()){
         //Si la data es mayor a la raiz
-        NodoBinario<DATA>* derecha;
+        nodoBinario* derecha;
         derecha = insertarNodo(raiz->getDerecha(),data);
         raiz->setDerecha(derecha);
     }
     return raiz;
 }
 
-template <class DATA>
-void ArbolBinario<DATA>::eliminarNodo(DATA* data){
-    DATA* dataP=&data;
-    eliminarNodo(this->raiz, dataP);
-
+void ArbolBinario::eliminarNodo(int data){
+    this->raiz = eliminarNodo(this->raiz, data);
 }
 
-template <class DATA>
-void ArbolBinario<DATA>::eliminarNodo(NodoBinario<DATA>* raiz, DATA* data){
-    if(this->raiz==NULL){
+nodoBinario* ArbolBinario::eliminarNodo(nodoBinario* raiz, int data){
+    if(raiz==NULL){
         cout<<"Vacio o no se ha encontrado.";
-        return;
-    }else if(data < raiz->getData()){
-        eliminarNodo(raiz->getIzquierda(), data);
-    }else if(data > raiz->getData()){
-        eliminarNodo(raiz->getDerecha(), data);
-    }else{
-        //ya fue encontrado
-        NodoBinario<DATA>* temp = raiz;
+        return NULL;
+    }else if(data < raiz->getData()){//El dato sea menor a
+        nodoBinario* izquierda;
+        izquierda = eliminarNodo(raiz->getIzquierda(), data);
+        raiz->setIzquierda(izquierda);
+
+    }else if(data > raiz->getData()){//El dato sea mayor a
+        nodoBinario* derecha;
+        derecha = eliminarNodo(raiz->getDerecha(), data);
+        raiz->setDerecha(derecha);
+
+    }else{//Dato ya fue encontrado
+
+        nodoBinario* temp = raiz;
         if(temp->getDerecha() == NULL && temp->getIzquierda()== NULL){
             //tengo que eliminar el nodo que encontre
+            raiz = NULL;
         }else if(temp->getIzquierda()==NULL){//Solamente el subarbol derecho
             raiz = temp->getDerecha();
         }else if(temp->getDerecha()==NULL){//Solamente el subarbol izquierdo
@@ -70,16 +67,15 @@ void ArbolBinario<DATA>::eliminarNodo(NodoBinario<DATA>* raiz, DATA* data){
         }else{//Tiene ambos subarboles
             temp = reemplazo(temp); //temp = raiz
         }
-        temp->setDerecha(NULL);
-        temp->setIzquierda(NULL);
+        //temp->setDerecha(NULL);
+        //temp->setIzquierda(NULL);
         delete(temp);
     }
+    return raiz;
 }
 
-
-template <class DATA>
-NodoBinario<DATA>* ArbolBinario<DATA>::reemplazo(NodoBinario<DATA>* nodoActual){
-    NodoBinario<DATA> *primero, *segundo;
+nodoBinario* ArbolBinario::reemplazo(nodoBinario* nodoActual){
+    nodoBinario *primero, *segundo;
 
     primero = nodoActual;
     segundo = primero->getIzquierda(); // Rama de menores, hacia la izquierda
@@ -89,39 +85,47 @@ NodoBinario<DATA>* ArbolBinario<DATA>::reemplazo(NodoBinario<DATA>* nodoActual){
     }
 
     nodoActual->setData(segundo->getData()); //El valor se traslada a valor de nodo a eliminar
-    if(primero==nodoActual){
+    if(primero==nodoActual){// No se movieron los punteros
         primero->setIzquierda(segundo->getIzquierda());
-    }else{
+    }else{//Se movieron los punteros
         primero->setDerecha(segundo->getIzquierda());
     }
     return segundo;
 }
 
+//Recorrido Preorden NID
+void ArbolBinario::recorridoPreorden(){
+    cout<<"\nRecorrido PreOrden NID:"<<endl;
+    recorridoPreorden(this->raiz);
+    cout<<"\n";
+}
+
 //Recorrido Inorden IND
-template <class DATA>
-void ArbolBinario<DATA>::recorridoInorden(){
+void ArbolBinario::recorridoInorden(){
+    cout<<"\nRecorrido Inorden IND:"<<endl;
     recorridoInorden(this->raiz);
+    cout<<"\n";
 }
 
 //Recorrido Postorden IDN
-template <class DATA>
-void ArbolBinario<DATA>::recorridoPostorden(){
+void ArbolBinario::recorridoPostorden(){
+    cout<<"\nRecorrido Postorden IDN:"<<endl;
     recorridoPostorden(this->raiz);
+    cout<<"\n";
 }
 
-//Recorrido Preorden NID
-template <class DATA>
-void ArbolBinario<DATA>::recorridoPreorden(){
-    recorridoPreorden(this->raiz);
+//Recorrido NID Preorden
+void ArbolBinario::recorridoPreorden(nodoBinario* raiz){
+    if(raiz!=NULL){
+        raiz->visitarNodo();
+        recorridoPreorden(raiz->getIzquierda());
+        recorridoPreorden(raiz->getDerecha());
+    }
 }
 
 //Recorrido IND Inorden
-template <class DATA>
-void ArbolBinario<DATA>::recorridoInorden(NodoBinario<DATA>* raiz){
-    if(this->raiz==NULL){
-        cout<<"Esta vacia!\n"<<endl;
-        return;
-    }else{
+void ArbolBinario::recorridoInorden(nodoBinario* raiz){
+    if(raiz!=NULL){
         recorridoInorden(raiz->getIzquierda());
         raiz->visitarNodo();
         recorridoInorden(raiz->getDerecha());
@@ -129,31 +133,12 @@ void ArbolBinario<DATA>::recorridoInorden(NodoBinario<DATA>* raiz){
 }
 
 //Recorrido IDN Postorden
-template <class DATA>
-void ArbolBinario<DATA>::recorridoPostorden(NodoBinario<DATA>* raiz){
-    if(this->raiz==NULL){
-        cout<<"Esta vacia!\n";
-        return;
-    }else{
+void ArbolBinario::recorridoPostorden(nodoBinario* raiz){
+    if(raiz!=NULL){
         recorridoPostorden(raiz->getIzquierda());
         recorridoPostorden(raiz->getDerecha());
         raiz->visitarNodo();
     }
 }
-
-//Recorrido NID Preorden
-template <class DATA>
-void ArbolBinario<DATA>::recorridoPreorden(NodoBinario<DATA>* raiz){
-    if(this->raiz==NULL){
-        cout<<"Esta vacia!\n"<<endl;
-    }else{
-        raiz->visitarNodo();
-        recorridoPreorden(raiz->getIzquierda());
-        recorridoPreorden(raiz->getDerecha());
-    }
-}
-
-
-
 
 
