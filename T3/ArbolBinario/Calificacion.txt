@@ -1,0 +1,11 @@
+---------------Errores--------------
+1) No tiene delete arbol, por lo cual se queda en memoria
+---------------Recomendaciones------
+***********Muy buena manera de programar*************
+Solo liberar memoria
+---------------Nota-----------------
+Arbol     20/40
+Preorden  20/20
+Inorden   20/20
+Postorden 20/20
+
