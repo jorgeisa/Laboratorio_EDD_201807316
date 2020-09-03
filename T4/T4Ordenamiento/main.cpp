@@ -13,19 +13,19 @@ int main()
 
     ListaDoble *list=new ListaDoble();
     Nodo *a,*b,*c,*d,*e,*f,*g; //*h,*i,*j, *k, *l, *m, *n, *o;
-    a=new Nodo("Palabra1");
+    a=new Nodo("$$$$$$$$$#$$$$$");
     //80 97 108 97 98 114 97 49 = 740
-    b=new Nodo("Palabra2");
+    b=new Nodo("ESTE ES UN MENSAJE");
     //80 97 108 97 98 114 97 50 = 741
-    c=new Nodo("Marvin");
+    c=new Nodo("Yo bien gracias");
     // 77 97 114 118 105 110 = 621
-    d=new Nodo("No");
+    d=new Nodo("Hola como estas");
     // 78 111 = 189
-    e=new Nodo("Me bajes puntos");
+    e=new Nodo("!!!!Vamos a sacar 100");
     // 77 101 32 98 97 106 101 115 32 112 117 110 116 111 115 = 1440
-    f=new Nodo("Por favor :(");
+    f=new Nodo("Vamos a ganar EDD todos juntos");
     // 80 111 114 32 102 97 118 111 114 32 58 40 = 1009
-    g=new Nodo("Es broma, saludos Marvin :D");
+    g=new Nodo("Este es el ultimo mensaje del dia de hoy*45");
     // 69 115 32 98 114 111 109 97 44 32 115 97 +
     // 108 117 100 111 115 32 77 97 114 118 105 110 32 58 68 = 2395
 //    h=new Nodo(354);
