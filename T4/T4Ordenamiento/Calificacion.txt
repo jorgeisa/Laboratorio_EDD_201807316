@@ -1,0 +1,10 @@
+------Errores-----------------------
+1) Tu metodo funciona pero solo ordena los valores no los string
+2)
+------Recomendaciones---------------
+------Nota-------------------------
+
+Ordenamiento   40/80
+Buenas practicas 20/20
+
+Total 60
